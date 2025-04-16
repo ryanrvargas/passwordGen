@@ -51,4 +51,3 @@ public class passwordGenerator {
         this.password = "";
     }
 }
-    
