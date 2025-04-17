@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * and store them in a list for later retrieval.
  */
 public class passwordGenerator {
-    
+
+    passwordChecker pc = new passwordChecker();
 
     /** The most recently generated password */
     private String password;
@@ -31,7 +32,7 @@ public class passwordGenerator {
     }
 
     public passwordGenerator() {
-
+        this.password = "";
     }
 
     /**
@@ -54,7 +55,10 @@ public class passwordGenerator {
         for (int i = 0; i < length; i++){
             this.password += c.charAt((int)(Math.random() * c.length()));
         }
-
+        int diff = pc.checkDifficulty(this.password);
+        if (diff != 2){
+            generateP();
+        }
         savedP.add(this.password);
         this.password = "";
     }
