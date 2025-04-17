@@ -55,10 +55,6 @@ public class passwordGenerator {
         for (int i = 0; i < length; i++){
             this.password += c.charAt((int)(Math.random() * c.length()));
         }
-        int diff = pc.checkDifficulty(this.password);
-        if (diff != 2){
-            generateP();
-        }
         savedP.add(this.password);
         this.password = "";
     }
