@@ -10,9 +10,12 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
+	
+	<TitledPane fx:id="titleGenerate" text="Password Generator" />
+	<Label fx:id="generatePasswordLabel" text="Click here to generate your password!" />
+	<Label fx:id="lengthLabel" text="Choose your password Length:" />
     <TextField fx:id="passwordLegth" promptText="enter length here:" />
     <Label fx:id="welcomeText" text="Password Generator" />
-   <Button fx:id="generatePasswordButton" mnemonicParsing="false" onAction="#onGeneratePasswordButton" text="Button" />
-   <Label fx:id="passwordDisplay" onDragDetected="#onPasswordDisplay" text="Label" />
+    <Button fx:id="generatePasswordButton" mnemonicParsing="false" onAction="#onGeneratePasswordButton" text="Button" />
+    <Label fx:id="passwordDisplay" onDragDetected="#onPasswordDisplay" text="Label" />
 </VBox>

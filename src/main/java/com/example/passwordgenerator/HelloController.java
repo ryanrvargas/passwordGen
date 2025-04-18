@@ -17,6 +17,18 @@ public class HelloController {
 
     @FXML
     private TextField passwordLength;
+	
+	@FXML
+	private Label generateLabel;
+	
+	@FXML
+	private Label lengthLabel;
+	
+	@FXML
+	private TextField generatePasswordLength;
+	
+	@FXML
+	private TitledPane titleGenerate;
 
     @FXML
     private Label passwordDisplay;
