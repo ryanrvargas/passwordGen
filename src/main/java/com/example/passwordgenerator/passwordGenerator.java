@@ -8,6 +8,8 @@ import java.util.ArrayList;
  */
 public class passwordGenerator {
 
+    passwordChecker pc = new passwordChecker();
+
     /** The most recently generated password */
     private String password;
 
@@ -26,6 +28,10 @@ public class passwordGenerator {
      */
     public passwordGenerator(int length){
         this.length = length;
+        this.password = "";
+    }
+
+    public passwordGenerator() {
         this.password = "";
     }
 
