@@ -67,4 +67,8 @@ public class passwordGenerator {
             return "No saved passwords";
         }
     }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
 }
