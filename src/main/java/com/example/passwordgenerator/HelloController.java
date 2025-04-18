@@ -14,17 +14,37 @@ public class HelloController {
     public Button generatePasswordButton;
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private TextField passwordLength;
+
     @FXML
     private Label passwordDisplay;
+
     private passwordGenerator p = new passwordGenerator(12);
 
     @FXML
     private void onGeneratePasswordButton(javafx.event.ActionEvent event){
-        p.generateP();
-        passwordDisplay.setText(p.getLastPassword());
+        try{
+            int length = Integer.parseInt(passwordLength.getText());
+
+            p.setLength(length);
+
+            p.generateP();
+
+            passwordDisplay.setText(p.getLastPassword());
+        }catch (NumberFormatException e){
+            passwordDisplay.setText("Password length must be an integer");
+        }catch (IllegalArgumentException e){
+            passwordDisplay.setText(e.getMessage());
+        }
 
     }
+
     @FXML
     public void onPasswordDisplay(MouseEvent mouseEvent) {
     }
+
+
+
 }
