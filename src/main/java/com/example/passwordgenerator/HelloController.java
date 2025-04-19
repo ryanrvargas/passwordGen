@@ -1,16 +1,9 @@
 package com.example.passwordgenerator;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextArea;
-
-import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class HelloController {
     @FXML
@@ -31,34 +24,54 @@ public class HelloController {
     @FXML
     private Button showAllPasswordsButton;
 
+    @FXML
+    private TextField passwordLength;
+
+    @FXML
+    private Label generateLabel;
+
+    @FXML
+    private Label lengthLabel;
+
+    @FXML
+    private TextField generatePasswordLength;
+
+    @FXML
+    private TitledPane titleGenerate;
+
     private passwordGenerator p = new passwordGenerator(12);
 
     @FXML
-    private void onGeneratePasswordButton(javafx.event.ActionEvent event){
-        p.generateP();
-        passwordDisplay.setText(p.getLastPassword());
-
+    private void onGeneratePasswordButton(ActionEvent event){
+        try {
+            int length = Integer.parseInt(passwordLength.getText());
+            p.setLength(length);
+            p.generateP();
+            passwordDisplay.setText(p.getLastPassword());
+        } catch (NumberFormatException e) {
+            passwordDisplay.setText("Password length must be an integer");
+        } catch (IllegalArgumentException e) {
+            passwordDisplay.setText(e.getMessage());
+        }
     }
+
     @FXML
     public void onPasswordDisplay(MouseEvent mouseEvent) {
+        // Handle clicking on password display (if needed)
     }
 
     @FXML
     private void onShowAllPasswordsButton(ActionEvent event){
         StringBuilder sb = new StringBuilder();
         for (String pass : p.getSavedPasswords()) {
-            sb.append(pass);
-            sb.append("\n");
-
+            sb.append(pass).append("\n");
         }
         showAllPasswords.setText(sb.toString());
     }
 
     @FXML
     private void onSavePassword(ActionEvent event) {
-        // Optional: Save the current password to a file or something
         System.out.println("Save password clicked!");
         p.getSavedPasswords().add(p.getLastPassword());
     }
-
 }
