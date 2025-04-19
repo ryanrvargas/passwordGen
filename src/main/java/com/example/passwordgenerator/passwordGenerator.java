@@ -16,11 +16,13 @@ public class passwordGenerator {
     /** Desired length of each password */
     private int length;
 
+
     /** Character set used for generating passwords */
     private final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|:;<>,.?/";
 
     /** List of all previously generated passwords */
     ArrayList<String> savedP = new ArrayList<String>();
+    ArrayList<String> tempP = new ArrayList<String>();
 
     /**
      * Constructor to initialize the password generator with a given length.
@@ -39,13 +41,14 @@ public class passwordGenerator {
      * Prints all previously saved passwords to the console.
      * Each password is listed with its corresponding index.
      */
-    public void getSavedP(){
-        int index = 1;
-        for (String p : savedP){
-            System.out.printf("%d:Password:%s\n", index, p);
-            index += 1;
-        }
+    public ArrayList<String> getSavedPasswords() {
+        return this.savedP;
     }
+
+    public ArrayList<String> getTempPasswords() {
+        return this.tempP;
+    }
+
 
     /**
      * Generates a new random password of the specified length,
@@ -55,13 +58,13 @@ public class passwordGenerator {
         for (int i = 0; i < length; i++){
             this.password += c.charAt((int)(Math.random() * c.length()));
         }
-        savedP.add(this.password);
+        tempP.add(this.password);
         this.password = "";
     }
 
     public String getLastPassword(){
-        if (this.savedP.size() > 0){
-            return this.savedP.get(this.savedP.size() - 1);
+        if (this.tempP.size() > 0){
+            return this.tempP.get(this.tempP.size() - 1);
         }
         else{
             return "No saved passwords";
