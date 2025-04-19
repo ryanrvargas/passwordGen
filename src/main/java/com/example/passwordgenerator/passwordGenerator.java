@@ -64,7 +64,7 @@ public class passwordGenerator {
 
     public String getLastPassword(){
         if (this.tempP.size() > 0){
-            return this.savedP.get(this.savedP.size() - 1);
+            return this.tempP.get(this.tempP.size() - 1);
         }
         else{
             return "No saved passwords";
