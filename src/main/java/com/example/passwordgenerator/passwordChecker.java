@@ -29,7 +29,7 @@ public class passwordChecker {
      *
      * @param password The password to evaluate
      * @return An integer representing the password strength (0 = weak, 1 = medium, 2 = strong)
-     */
+     *
     public int checkDifficulty(String password) {
         if (password.length() < 5 && (password.matches("\\d+") || password.matches("[a-zA-Z]+"))) {
             // Weak: Short + only digits or letters
@@ -46,4 +46,4 @@ public class passwordChecker {
 
         return this.difficulty;
     }
-}
+}  **/
