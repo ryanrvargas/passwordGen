@@ -14,7 +14,7 @@ public class PasswordApplication extends Application {
     /**
      * Called automatically when the JavaFX application is launched.
      * It sets up the primary stage and loads the FXML layout.
-     * Example of POLYMORPHISM
+     *
      * @param stage The primary stage for this application
      * @throws IOException If the FXML file cannot be loaded
      */

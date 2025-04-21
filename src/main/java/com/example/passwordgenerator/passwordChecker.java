@@ -10,9 +10,7 @@ package com.example.passwordgenerator;
  * 2 - Strong
  */
 public class passwordChecker {
-    /**
-     * Stores the difficulty level of the most recently checked password
-     */
+    /** Stores the difficulty level of the most recently checked password */
     private int difficulty;
 
     /**
@@ -21,8 +19,6 @@ public class passwordChecker {
     public passwordChecker() {
         this.difficulty = 0;
     }
-
-}
 
     /**
      * Evaluates the difficulty of a given password based on length and content:
@@ -33,7 +29,7 @@ public class passwordChecker {
      *
      * @param password The password to evaluate
      * @return An integer representing the password strength (0 = weak, 1 = medium, 2 = strong)
-     *
+     */
     public int checkDifficulty(String password) {
         if (password.length() < 5 && (password.matches("\\d+") || password.matches("[a-zA-Z]+"))) {
             // Weak: Short + only digits or letters
@@ -50,4 +46,4 @@ public class passwordChecker {
 
         return this.difficulty;
     }
-}  **/
+}
