@@ -10,7 +10,7 @@ import java.io.IOException;
  * The HelloApplication class is the main entry point for the JavaFX application.
  * It loads the FXML file, sets the stage, and launches the GUI.
  */
-public class HelloApplication extends Application {
+public class PasswordApplication extends Application {
     /**
      * Called automatically when the JavaFX application is launched.
      * It sets up the primary stage and loads the FXML layout.
@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PasswordApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);

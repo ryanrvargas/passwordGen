@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
  * for the password generator application using JavaFX.
  * It connects UI elements (defined in FXML) to their backend functionality.
  */
-public class HelloController {
+public class PasswordController {
     /** Button to trigger password generation */
     @FXML
     public Button generatePasswordButton;
