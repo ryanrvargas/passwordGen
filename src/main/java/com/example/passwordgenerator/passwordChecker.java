@@ -10,7 +10,9 @@ package com.example.passwordgenerator;
  * 2 - Strong
  */
 public class passwordChecker {
-    /** Stores the difficulty level of the most recently checked password */
+    /**
+     * Stores the difficulty level of the most recently checked password
+     */
     private int difficulty;
 
     /**
@@ -19,6 +21,8 @@ public class passwordChecker {
     public passwordChecker() {
         this.difficulty = 0;
     }
+
+}
 
     /**
      * Evaluates the difficulty of a given password based on length and content:
