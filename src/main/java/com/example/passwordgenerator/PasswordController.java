@@ -66,9 +66,11 @@ public class PasswordController {
      */
     @FXML
     private void onGeneratePasswordButton(ActionEvent event){
+        //Exception Handling
         try {
             int length = Integer.parseInt(passwordLength.getText());
             if (length <= 0 || length > 20){
+                //Throw
                 throw new IllegalArgumentException("Password length must be between 0 and 20 characters.");
             } else{
                 p.setLength(length);

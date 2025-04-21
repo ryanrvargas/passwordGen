@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * The passwordGenerator class is used to generate random passwords
  * and store them in a list for later retrieval.
  */
-public class passwordGenerator {
+public class passwordGenerator implements passwordInterface {
 
     passwordChecker pc = new passwordChecker();
 
