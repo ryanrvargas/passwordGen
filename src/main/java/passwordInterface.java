@@ -1,5 +1,3 @@
-
-
 public interface passwordInterface {
     void generateP();
     void getSavedP();
