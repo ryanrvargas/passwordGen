@@ -20,8 +20,9 @@ public class passwordGenerator {
     /** Character set used for generating passwords */
     private final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|:;<>,.?/";
 
-    /** List of all previously generated passwords */
+    /** List of all saved passwords */
     ArrayList<String> savedP = new ArrayList<String>();
+    /** List of all temporary passwords */
     ArrayList<String> tempP = new ArrayList<String>();
 
     /**
@@ -32,27 +33,33 @@ public class passwordGenerator {
         this.length = length;
         this.password = "";
     }
-
+    /**
+     * Default constructor (length should be set later via setLength).
+     */
     public passwordGenerator() {
         this.password = "";
     }
 
     /**
-     * Prints all previously saved passwords to the console.
-     * Each password is listed with its corresponding index.
+     * Returns the list of saved passwords.
+     * @return ArrayList of saved passwords
      */
     public ArrayList<String> getSavedPasswords() {
         return this.savedP;
     }
 
+    /**
+     * Returns the list of temporary passwords (most recent).
+     * @return ArrayList of temporary passwords
+     */
     public ArrayList<String> getTempPasswords() {
         return this.tempP;
     }
 
 
     /**
-     * Generates a new random password of the specified length,
-     * adds it to the list of saved passwords, and resets the internal password field.
+     * Generates a new random password of the current length,
+     * adds it to the temporary password list, and resets the internal password field.
      */
     public void generateP(){
         for (int i = 0; i < length; i++){
@@ -61,7 +68,10 @@ public class passwordGenerator {
         tempP.add(this.password);
         this.password = "";
     }
-
+    /**
+     * Gets the most recently generated password.
+     * @return The last generated password, or a message if none have been generated
+     */
     public String getLastPassword(){
         if (this.tempP.size() > 0){
             return this.tempP.get(this.tempP.size() - 1);
@@ -70,7 +80,10 @@ public class passwordGenerator {
             return "No saved passwords";
         }
     }
-
+    /**
+     * Sets the length of the passwords to be generated.
+     * @param length Desired password length
+     */
     public void setLength(int length) {
         this.length = length;
     }
