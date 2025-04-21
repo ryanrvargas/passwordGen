@@ -19,17 +19,15 @@
 
     <!-- FIXED typo: fx:id="passwordLength" -->
     <TextField fx:id="passwordLength" promptText="Enter length here:" />
-    <Label fx:id="generatePasswordLabel" text="Click here to generate your password!" />
     <Button fx:id="generatePasswordButton" mnemonicParsing="false" onAction="#onGeneratePasswordButton" text="Generate Password" />
 
     <Label fx:id="passwordDisplay" text="Password will appear here" />
-   <Label text="Saved Passwords" />
-
-    <TextArea fx:id="showAllPasswords" editable="false" prefWidth="200.0" />
    <HBox alignment="CENTER" prefHeight="6.0" prefWidth="202.0">
       <children>
-          <Button fx:id="showAllPasswordsButton" mnemonicParsing="false" onAction="#onShowAllPasswordsButton" text="Show Passwords" />
           <Button fx:id="savePassword" mnemonicParsing="false" onAction="#onSavePassword" text="Save Password" />
       </children>
    </HBox>
+    <Button fx:id="showAllPasswordsButton" mnemonicParsing="false" onAction="#onShowAllPasswordsButton" text="Show Passwords" />
+
+    <TextArea fx:id="showAllPasswords" editable="false" prefWidth="200.0" />
 </VBox>

@@ -68,9 +68,14 @@ public class HelloController {
     private void onGeneratePasswordButton(ActionEvent event){
         try {
             int length = Integer.parseInt(passwordLength.getText());
-            p.setLength(length);
-            p.generateP();
-            passwordDisplay.setText(p.getLastPassword());
+            if (length <= 0 || length > 20){
+                throw new IllegalArgumentException("Password length must be between 0 and 20 characters.");
+            } else{
+                p.setLength(length);
+                p.generateP();
+                passwordDisplay.setText(p.getLastPassword());
+            }
+
         } catch (NumberFormatException e) {
             passwordDisplay.setText("Password length must be an integer");
         } catch (IllegalArgumentException e) {
