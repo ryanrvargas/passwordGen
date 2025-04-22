@@ -62,11 +62,12 @@ public class passwordGenerator implements passwordInterface {
      * adds it to the temporary password list, and resets the internal password field.
      */
     public void generateP(){
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++){
-            this.password += c.charAt((int)(Math.random() * c.length()));
+            sb.append(c.charAt((int)(Math.random() * c.length())));
         }
+        this.password = sb.toString(); // Save the new password
         tempP.add(this.password);
-        this.password = "";
     }
     /**
      * Gets the most recently generated password.
