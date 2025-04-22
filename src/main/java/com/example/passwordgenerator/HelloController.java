@@ -4,6 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
+import java.util.List;
 
 public class HelloController {
     @FXML
@@ -62,16 +68,28 @@ public class HelloController {
 
     @FXML
     private void onShowAllPasswordsButton(ActionEvent event){
-        StringBuilder sb = new StringBuilder();
-        for (String pass : p.getSavedPasswords()) {
-            sb.append(pass).append("\n");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SavedPasswords.fxml"));
+            Parent root = loader.load();
+
+            SavedPasswordsController controller = loader.getController();
+            controller.setPasswords(p.getSavedPasswords());
+
+            Stage stage = new Stage();
+            stage.setTitle("Saved Passwords");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        showAllPasswords.setText(sb.toString());
     }
 
     @FXML
     private void onSavePassword(ActionEvent event) {
         System.out.println("Save password clicked!");
-        p.getSavedPasswords().add(p.getLastPassword());
+        String lastGenerated = p.getLastPassword();
+        if (!lastGenerated.equals("No saved passwords")) {
+            p.getSavedPasswords().add(lastGenerated);
+        }
     }
 }
