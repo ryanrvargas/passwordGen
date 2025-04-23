@@ -86,6 +86,12 @@ public class passwordGenerator implements passwordInterface {
      * @param length Desired password length
      */
     public void setLength(int length) {
+        if (length < 8){
+            throw new IllegalArgumentException("Length must be at least 8 characters");
+        } else if (length > 40){
+            throw new IllegalArgumentException("Length must be at most 40 characters");
+        }
         this.length = length;
+
     }
 }

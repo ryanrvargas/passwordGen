@@ -9,9 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.List;
 
-public class HelloController {
+public class PasswordController {
     @FXML
     public Button generatePasswordButton;
 
