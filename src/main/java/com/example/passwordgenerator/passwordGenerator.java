@@ -1,5 +1,10 @@
 package com.example.passwordgenerator;
-
+/*
+ * @author Ryan Vargas
+ * Date: April 23, 2025
+ * Section: 331 002
+ *
+ */
 import java.util.ArrayList;
 
 /**
